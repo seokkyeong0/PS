@@ -1,2 +1,2 @@
 # PS
-Problem Solving Challenge
+Problem Solving
