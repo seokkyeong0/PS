@@ -1,2 +1,2 @@
-# C++ Practice
-1 year streak challenge
+# PS
+Problem Solving
