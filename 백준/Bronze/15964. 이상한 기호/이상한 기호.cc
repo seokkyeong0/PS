@@ -1,7 +1,7 @@
 #include <iostream>
 using namespace std;
 
-int OoO(int a, int b) {
+long long OoO(long long a, long long b) {
     return (a + b) * (a - b);
 }
 
@@ -9,7 +9,7 @@ int main() {
     ios::sync_with_stdio(false);
     cin.tie(nullptr);
 
-    int a, b;
+    long long a, b;
     cin >> a >> b;
     cout << OoO(a, b);
 
