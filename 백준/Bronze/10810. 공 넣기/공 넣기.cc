@@ -9,7 +9,6 @@ int main() {
     cin >> n >> m;
     
     int a[n] = {0};
-    int b[n] = {0};
     
     while(m--){
         int i, j, k;
