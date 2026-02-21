@@ -8,17 +8,13 @@ int main() {
     int n;
     cin >> n;
 
-    int len = 1;
-    int cnt = 4;
-    int dup = 0;
-    
+    int result = 2;
+
     while (n--) {
-        dup = len * 4 + 3;
-        cnt = (cnt * 4) - dup;
-        len *= 2;
+        result = result * 2 - 1;
     }
 
-    cout << cnt;
+    cout << result * result;
 
     return 0;
 }
