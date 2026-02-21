@@ -8,33 +8,14 @@ int main() {
     int n;
     cin >> n;
 
-    int cnt = 1;
-    int fst = 2;
-    int lst = 8;
-    int weight = 0;
+    int w = 1;
+    int layer = 1;
 
-    bool is_end = false;
-
-    if (n > 1) {
-        while (true) {
-            for (int i = fst; i < lst; i++) {
-                if (i == n) {
-                    cnt++;
-                    is_end = true;
-                }
-            }
-
-            if (is_end)
-                break;
-
-            cnt++;
-            weight += 6;
-            fst += weight;
-            lst += weight + 6;
-        }
+    while (n > w) {
+        w += 6 * layer++;
     }
 
-    cout << cnt;
+    cout << layer;
 
     return 0;
 }
