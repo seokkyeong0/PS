@@ -16,14 +16,10 @@ int main() {
         rev ^= true;
     }
 
-    if (x == 1)
-        cout << x << '/' << x;
-    else {
-        if (rev)
-            cout << x - n << '/' << i + 1 - (x - n);
-        else
-            cout << i + 1 - (x - n) << '/' << x - n;
-    }
+    if (rev)
+        cout << x - n << '/' << i + 1 - (x - n);
+    else
+        cout << i + 1 - (x - n) << '/' << x - n;
 
     return 0;
 }
