@@ -8,12 +8,7 @@ int main() {
     long long n;
     cin >> n;
 
-    long long cnt = 0;
-    while (n--) {
-        cnt += n;
-    }
-
-    cout << cnt << '\n' << 2;
+    cout << n * (n - 1) / 2 << '\n' << 2;
 
     return 0;
 }
