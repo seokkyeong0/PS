@@ -8,13 +8,7 @@ int main() {
     unsigned long long n;
     cin >> n;
 
-    unsigned long long cnt = 0;
-
-    for (int i = 1; i < n - 1; i++) {
-        cnt += ((n - 1) - i) * (n - i) / 2;
-    }
-
-    cout << cnt << '\n' << 3;
+    cout << (n - 2) * (n - 1) * n / 6 << '\n' << 3;
 
     return 0;
 }
