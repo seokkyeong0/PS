@@ -9,7 +9,7 @@ int main() {
         for (int y = -999; y < 1000; y++) {
             if ((a - d) * x + (b - e) * y == c - f) {
                 if ((a * x + b * y == c) && ((d * x) + (e * y) == f)) {
-                    cout << x << ' ' << y << '\n';
+                    cout << x << ' ' << y;
                 }
             }
         }
