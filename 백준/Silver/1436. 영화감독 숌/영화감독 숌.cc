@@ -1,6 +1,7 @@
 #include <iostream>
-#include <string>
 using namespace std;
+
+bool star_wars(int n);
 
 int main() {
 	ios_base::sync_with_stdio(false);
@@ -9,32 +10,31 @@ int main() {
 	int n;
 	cin >> n;
 
-	int idx = 0;
-	int i = 666;
+	int num = 666;
+	int cnt = 0;
 
 	while (true) {
-		string s = to_string(i);
-
-		int streak = 0;
-		for (auto c : s) {
-			if (c - 48 == 6)
-				streak++;
-			else
-				streak = 0;
-
-			if (streak == 3) {
-				idx++;
-				break;
-			}
+		if (star_wars(num)) {
+			cnt += 1;
 		}
 
-		if (n == idx)
+		if (cnt == n) {
+			cout << num;
 			break;
-		else
-			i += 1;
+		}
+
+		num++;
 	}
 
-	cout << i;
-
 	return 0;
+}
+
+bool star_wars(int n) {
+	while (n >= 666) {
+		if (n % 1000 == 666) {
+			return true;
+		}
+		n /= 10;
+	}
+	return false;
 }
