@@ -17,25 +17,14 @@ int main() {
 	while (n--) {
 		string s;
 		cin >> s;
-
-		bool is_dup = false;
-		for (int i = 0; i < v.size(); i++) {
-			if (v[i] == s)
-				is_dup = true;
-				
-		}
-
-		if (!is_dup)
-			v.push_back(s);
+		v.push_back(s);
 	}
 	
 	sort(v.begin(), v.end(), compare);
+	v.erase(unique(v.begin(), v.end()), v.end());
 
-	for (int i = 0; i < v.size(); i++) {
-		for (int j = 0; j < v[i].size(); j++) {
-			cout << v[i][j];
-		}
-		cout << '\n';
+	for (auto s : v) {
+		cout << s << '\n';
 	}
 
 	return 0;
