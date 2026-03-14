@@ -1,4 +1,5 @@
 #include <iostream>
+#include <string>
 #include <cmath>
 using namespace std;
 
@@ -9,16 +10,16 @@ using namespace std;
 // 인덱스 계산해서 가운데 비우기
 // 좌, 우로 나누기
 
-string s;
-void cantore(int start, int len) {
+void cantore(string &s, int start, int len) {
     if (len == 1) return;
     int idx_l = len / 3;
     int idx_r = idx_l * 2;
     for (int i = start + idx_l; i < start + idx_r; i++) {
         s[i] = ' ';
     }
-    cantore(start, idx_l); // 좌측
-    cantore(start + idx_r, idx_l); // 우측
+    fill(s.begin() + start + idx_l, s.begin() + start + idx_r, ' ');
+    cantore(s, start, idx_l); // 좌측
+    cantore(s, start + idx_r, idx_l); // 우측
 }
 
 int main() {
@@ -29,14 +30,9 @@ int main() {
         int n;
         cin >> n;
         if (cin.eof()) break;
-
-        for (int i = 0; i < pow(3, n); i++) {
-            s += '-';
-        }
-
-        cantore(0, s.size());
+        string s(pow(3, n), '-');
+        cantore(s, 0, s.size());
         cout << s << '\n';
-        s.clear();
     }
 
     return 0;
