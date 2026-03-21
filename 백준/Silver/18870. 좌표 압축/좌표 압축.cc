@@ -3,51 +3,30 @@
 #include <vector>
 using namespace std;
 
-bool compare_1(pair<int, int> a, pair<int, int> b);
-bool compare_2(pair<int, int> a, pair<int, int> b);
+int arr[1000000];
 
 int main() {
-	ios_base::sync_with_stdio(false);
-	cin.tie(nullptr);
+    ios::sync_with_stdio(false);
+    cin.tie(nullptr);
 
-	int n;
-	cin >> n;
+    int n;
+    cin >> n;
 
-	vector<pair<int, int>> v;
+    vector<int> tmp, uni;
+    for (int i = 0; i < n; i++) {
+        cin >> arr[i];
+        tmp.push_back(arr[i]);
+    }
 
-	for (int i = 0; i < n; i++) {
-		int x;
-		cin >> x;
-		v.push_back({x, i});
-	}
+    sort(tmp.begin(), tmp.end());
 
-	sort(v.begin(), v.end(), compare_1);
+    for (int i = 0; i < n; i++) {
+        if (i == 0 || tmp[i - 1] != tmp[i])
+            uni.push_back(tmp[i]);
+    }
 
-	int cnt = 0;
-	vector<pair<int, int>> t;
+    for (int i = 0; i < n; i++)
+        cout << lower_bound(uni.begin(), uni.end(), arr[i]) - uni.begin() << ' ';
 
-	for (int i = 0; i < n; i++) {
-		if (i > 0 && v[i].first != v[i - 1].first) {
-			t.push_back({ ++cnt, v[i].second });
-		}
-		else {
-			t.push_back({ cnt, v[i].second });
-		}
-	}
-
-	sort(t.begin(), t.end(), compare_2);
-
-	for (int i = 0; i < n; i++) {
-		cout << t[i].first << ' ';
-	}
-
-	return 0;
-}
-
-bool compare_1(pair<int, int> a, pair<int, int> b) {
-	return a.first < b.first;
-}
-
-bool compare_2(pair<int, int> a, pair<int, int> b) {
-	return a.second < b.second;
+    return 0;
 }
