@@ -2,7 +2,6 @@
 #include <algorithm>
 using namespace std;
 
-int val[500000];
 int arr[500000];
 
 int bs_lower(int st, int en, int target) {
@@ -37,14 +36,12 @@ int main() {
     int m;
     cin >> m;
 
-    for (int i = 0; i < m; i++) {
-        cin >> val[i];
-    }
-
     sort(arr, arr + n);
     
     for (int i = 0; i < m; i++) {
-        cout << bs_upper(0, n, val[i]) - bs_lower(0, n, val[i]) << ' ';
+        int t;
+        cin >> t;
+        cout << bs_upper(0, n, t) - bs_lower(0, n, t) << ' ';
     }
 
     return 0;
