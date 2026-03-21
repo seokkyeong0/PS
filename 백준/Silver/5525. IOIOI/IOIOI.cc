@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 int main() {
@@ -7,17 +6,20 @@ int main() {
     cin.tie(nullptr);
 
     int n, s;
-    string str, ref = "IOI";
+    string str;
     cin >> n >> s >> str;
 
-    for (int i = 2; i <= n; i++) {
-        ref += "OI";
-    }
-
     int cnt = 0;
-    for (int i = 0; i <= s - (2 * n); i++) {
-        if (str.substr(i, 2 * n + 1) == ref) {
-            cnt += 1;
+    for (int i = 0; i < s; i++) {
+        int streak = 0;
+        if (str[i] == 'I') {
+            while (i + 2 < s && str[i + 1] == 'O' && str[i + 2] == 'I') {
+                streak++;
+                if (streak >= n) {
+                    cnt++;
+                }
+                i += 2;
+            }
         }
     }
 
