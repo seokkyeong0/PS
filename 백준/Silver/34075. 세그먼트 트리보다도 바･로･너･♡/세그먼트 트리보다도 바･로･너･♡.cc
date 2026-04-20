@@ -18,7 +18,7 @@ bool compareAlgorithms(const Algorithm& a, const Algorithm& b) {
     int diffA = abs(a.difficulty - current_tier);
     int diffB = abs(b.difficulty - current_tier);
     if (diffA != diffB) return diffA < diffB;
-    return a.name < b.name;
+    return a.name < b.name; 
 }
 
 int main() {
